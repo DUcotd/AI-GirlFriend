@@ -93,36 +93,39 @@ git clone https://github.com/yourusername/ai-girlfriend.git
 cd ai-girlfriend
 ```
 
-### 2️⃣ 安装依赖
+### 2️⃣ 一键启动 (Windows 推荐) 🚀
 
-```bash
-# 安装后端依赖
-cd backend-node
-npm install
+直接双击运行根目录的 **`start.bat`**，脚本会自动完成：
+- ✅ 检测 Node.js 环境
+- ✅ 自动安装前后端依赖（首次运行）
+- ✅ 清理端口并启动服务
 
-# 安装前端依赖
-cd ../frontend
-npm install
-```
+> 💡 **首次运行**会自动安装依赖，耐心等待即可！后续启动将秒开。
 
-### 3️⃣ 启动项目
+### 其他脚本
 
-#### 方式一：Windows 一键启动 (推荐)
-直接双击运行根目录的 `start.bat` 脚本，会自动启动前后端服务。
+| 脚本 | 说明 |
+|------|------|
+| `start.bat` | 一键启动（自动安装+启动服务） |
+| `install.bat` | 仅安装依赖（不启动） |
+| `stop.bat` | 停止所有服务 |
 
-#### 方式二：手动启动
-打开两个终端窗口：
+### 手动启动（可选）
+
+如果你更喜欢手动操作，打开两个终端窗口：
 
 **终端 1 (后端)**:
 ```bash
 cd backend-node
+npm install    # 首次需要
 npm run dev
-# 后端运行在 http://localhost:3001
+# 后端运行在 http://localhost:8000
 ```
 
 **终端 2 (前端)**:
 ```bash
 cd frontend
+npm install    # 首次需要
 npm run dev
 # 前端运行在 http://localhost:3000
 ```
