@@ -93,35 +93,8 @@ git clone https://github.com/yourusername/ai-girlfriend.git
 cd ai-girlfriend
 ```
 
-### 2️⃣ 配置环境变量
-复制示例配置文件并填写你的API密钥：
-```bash
-# 复制环境变量模板
-cp .env.example .env
-```
+### 2️⃣ 安装依赖
 
-编辑 `.env` 文件，填入你的配置：
-```ini
-# 必填：主API配置
-OPENAI_API_KEY=your_api_key_here          # 你的API密钥
-OPENAI_BASE_URL=https://api.openai.com/v1 # API地址
-MODEL_NAME=gpt-4o-mini                     # 模型名称
-
-# 可选：独立的TTS API（不填则使用主Key）
-# TTS_API_KEY=your_tts_api_key_here
-
-# 可选：独立的Embedding API（不填则使用主Key）
-# EMBEDDING_API_KEY=your_embedding_api_key_here
-# EMBEDDING_BASE_URL=https://api.openai.com/v1
-# EMBEDDING_MODEL_NAME=text-embedding-3-small
-```
-
-> **💡 支持的服务商**:
-> - **OpenAI**: `https://api.openai.com/v1` + `gpt-4o-mini` / `gpt-4`
-> - **DeepSeek**: `https://api.deepseek.com` + `deepseek-chat`
-> - **其他兼容OpenAI API的服务**: 修改`OPENAI_BASE_URL`即可
-
-### 3️⃣ 安装依赖
 ```bash
 # 安装后端依赖
 cd backend-node
@@ -132,7 +105,7 @@ cd ../frontend
 npm install
 ```
 
-### 4️⃣ 启动项目
+### 3️⃣ 启动项目
 
 #### 方式一：Windows 一键启动 (推荐)
 直接双击运行根目录的 `start.bat` 脚本，会自动启动前后端服务。
@@ -154,8 +127,19 @@ npm run dev
 # 前端运行在 http://localhost:3000
 ```
 
-### 5️⃣ 访问应用
-打开浏览器访问 [http://localhost:3000](http://localhost:3000)
+### 4️⃣ 配置 API 并开始使用
+1. 打开浏览器访问 [http://localhost:3000](http://localhost:3000)
+2. 点击右上角 **设置图标** ⚙️ 打开设置面板
+3. 在 **通用** 标签页填入你的 API 配置：
+   - **API Key**: 你的 OpenAI / DeepSeek 等服务的密钥
+   - **Base URL**: API 地址（如 `https://api.openai.com/v1` 或 `https://api.deepseek.com`）
+   - **模型名称**: 如 `gpt-4o-mini` 或 `deepseek-chat`
+4. 点击 **保存全部配置** 即可开始和小爱聊天！
+
+> **💡 支持的服务商**:
+> - **OpenAI**: `https://api.openai.com/v1` + `gpt-4o-mini` / `gpt-4`
+> - **DeepSeek** (推荐): `https://api.deepseek.com` + `deepseek-chat`
+> - **其他兼容 OpenAI API 的服务**: 修改 Base URL 即可
 
 ---
 
@@ -316,11 +300,9 @@ DELETE /tasks/:id         删除任务
 ## ❓ 常见问题
 
 ### Q1: 如何切换到DeepSeek等其他模型？
-**A**: 修改 `.env` 文件中的配置：
-```ini
-OPENAI_BASE_URL=https://api.deepseek.com
-MODEL_NAME=deepseek-chat
-```
+**A**: 打开设置页面，修改 Base URL 和模型名称：
+- **Base URL**: `https://api.deepseek.com`
+- **模型名称**: `deepseek-chat`
 
 ### Q2: 语音功能不可用怎么办？
 **A**: 

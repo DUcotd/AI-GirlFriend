@@ -23,9 +23,9 @@ class Memory {
         // OpenAI configuration for embeddings
         console.log("[Memory] Initializing with config keys:", Object.keys(config));
 
-        // 优先级：专用配置 > 主配置 > 环境变量 > 默认值
-        this.apiKey = config.embeddingApiKey || config.apiKey || process.env.EMBEDDING_API_KEY || process.env.OPENAI_API_KEY;
-        this.baseUrl = config.embeddingBaseUrl || config.baseUrl || process.env.EMBEDDING_BASE_URL || process.env.OPENAI_BASE_URL || "https://api.openai.com/v1";
+        // 优先级：专用配置 > 主配置 > 默认值 (API Key 需通过前端设置页面配置)
+        this.apiKey = config.embeddingApiKey || config.apiKey || null;
+        this.baseUrl = config.embeddingBaseUrl || config.baseUrl || "https://api.openai.com/v1";
         this.embeddingModel = config.embeddingModelName || "text-embedding-3-small";
 
         // 特殊处理：如果 Base URL 包含 siliconflow 但模型还是默认的 OpenAI 模型，则自动修正

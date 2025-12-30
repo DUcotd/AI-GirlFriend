@@ -12,7 +12,8 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 class VoiceEngine {
     constructor(config = {}) {
         // TTS/ASR 始终使用 OpenAI 官方 API（第三方 API 通常不支持）
-        this.apiKey = config.apiKey || process.env.OPENAI_API_KEY;
+        // API Key 需通过前端设置页面配置
+        this.apiKey = config.apiKey || null;
         // 强制使用 OpenAI 官方 API，即使 chat 用的是其他 provider
         this.baseUrl = "https://api.openai.com/v1";
 

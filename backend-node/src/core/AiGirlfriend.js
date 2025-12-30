@@ -17,13 +17,13 @@ class AiGirlfriend {
         // 1. 先定义人设 Prompt (必须在 _loadState 前，因为 _loadState 会用到它初始化 history)
         this._initSystemPrompt();
 
-        // 2. 默认基础设定 (来自环境变量)
-        this.apiKey = process.env.OPENAI_API_KEY;
-        this.baseUrl = process.env.OPENAI_BASE_URL || "https://api.openai.com/v1";
-        this.modelName = process.env.MODEL_NAME || "gpt-3.5-turbo";
-        this.embeddingApiKey = process.env.EMBEDDING_API_KEY || null;
-        this.embeddingBaseUrl = process.env.EMBEDDING_BASE_URL || null;
-        this.embeddingModelName = process.env.EMBEDDING_MODEL_NAME || null;
+        // 2. 默认基础设定 (API Key 需通过前端设置页面配置)
+        this.apiKey = null;
+        this.baseUrl = "https://api.openai.com/v1";
+        this.modelName = "gpt-3.5-turbo";
+        this.embeddingApiKey = null;
+        this.embeddingBaseUrl = null;
+        this.embeddingModelName = null;
 
         // 默认业务状态
         this.affinity = 35;
